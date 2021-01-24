@@ -22,3 +22,5 @@ EMULATOR_PATH = "Android/Sdk/emulator"
 EMULATOR_AVD_NAME = "Nexus_6_API_28"
 EMULATOR_RUN_FILE = "./emulator"
 EMULATOR_RUN_CMD = f"{EMULATOR_RUN_FILE} -avd {EMULATOR_AVD_NAME} -writable-system -no-snapshot"
+
+# H
