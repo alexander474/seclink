@@ -1,8 +1,6 @@
 import subprocess
-import shlex
 import settings
 import webbrowser
-import platform
 import os
 
 
@@ -15,9 +13,9 @@ def run(command=None, path=None, shell=True):
     print("PATH: ", path)
     if cmd & path:
         # DETACHED_PROCESS flag to open separate terminal | preexec_fn=os.setpgrp for Linux
-        if platform.system() == settings.LINUX:
+        if settings.IS_LINUX:
             process = subprocess.run(cmd, cwd=path, shell=shell, preexec_fn=os.setpgrp)
-        elif platform.system() == settings.WINDOWS:
+        elif settings.IS_WINDOWS:
             process = subprocess.run(cmd, cwd=path, shell=shell, creationflags=subprocess.DETACHED_PROCESS)
         print("ARGS: ", process.args)
     return process
@@ -30,9 +28,9 @@ def popen(command=None, path=None, shell=True):
     print("PATH: ", path)
     if cmd & path:
         # DETACHED_PROCESS flag to open separate terminal | preexec_fn=os.setpgrp for Linux
-        if platform.system() == settings.LINUX:
+        if settings.IS_LINUX:
             process = subprocess.Popen(cmd, cwd=path, shell=shell, preexec_fn=os.setpgrp)
-        elif platform.system() == settings.WINDOWS:
+        elif settings.IS_WINDOWS:
             process = subprocess.Popen(cmd, cwd=path, shell=shell, creationflags=subprocess.DETACHED_PROCESS)
         print("ARGS: ", process.args)
         # Opens in browser

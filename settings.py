@@ -3,9 +3,14 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# OS VARIABLES
+CURRENT_OS = platform.system()
 WINDOWS = "Windows"
 LINUX = "Linux"
-MAC = "Darwin"
+OSX = "Darwin"
+IS_WINDOWS = CURRENT_OS == WINDOWS
+IS_LINUX = CURRENT_OS == LINUX
+IS_OSX = CURRENT_OS == OSX
 
 # MobSF VARIABLES
 MOBSF_PATH = "/home/blacktype/Documents/private/tools/Mobile-Security-Framework-MobSF"
