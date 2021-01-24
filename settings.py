@@ -3,9 +3,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-LINUX_TERMINAL = 'gnome-terminal -- sh -c "echo hey"'
-WINDOWS_TERMINAL = ["cmd.exe"]
-MAC_TERMINAL = ["xterm"]
 WINDOWS = "Windows"
 LINUX = "Linux"
 MAC = "Darwin"
@@ -22,5 +19,3 @@ EMULATOR_PATH = "Android/Sdk/emulator"
 EMULATOR_AVD_NAME = "Nexus_6_API_28"
 EMULATOR_RUN_FILE = "./emulator"
 EMULATOR_RUN_CMD = f"{EMULATOR_RUN_FILE} -avd {EMULATOR_AVD_NAME} -writable-system -no-snapshot"
-
-# H
