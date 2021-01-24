@@ -8,12 +8,12 @@ import os
 
 # https://stackoverflow.com/questions/29633719/subprocess-create-new-console (Check out for windows test)
 
-def run(command, path=settings.BASE_DIR, shell=True):
+def run(command=None, path=None, shell=True):
     cmd = command
     process = None
     print("CMD: ", cmd)
     print("PATH: ", path)
-    if cmd:
+    if cmd & path:
         # DETACHED_PROCESS flag to open separate terminal | preexec_fn=os.setpgrp for Linux
         if platform.system() == settings.LINUX:
             process = subprocess.run(cmd, cwd=path, shell=shell, preexec_fn=os.setpgrp)
@@ -23,12 +23,12 @@ def run(command, path=settings.BASE_DIR, shell=True):
     return process
 
 
-def popen(command, path=settings.BASE_DIR, shell=True):
+def popen(command=None, path=None, shell=True):
     cmd = command
     process = None
     print("CMD: ", cmd)
     print("PATH: ", path)
-    if cmd:
+    if cmd & path:
         # DETACHED_PROCESS flag to open separate terminal | preexec_fn=os.setpgrp for Linux
         if platform.system() == settings.LINUX:
             process = subprocess.Popen(cmd, cwd=path, shell=shell, preexec_fn=os.setpgrp)
