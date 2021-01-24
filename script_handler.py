@@ -9,4 +9,4 @@ def run(command, path=settings.BASE_DIR, shell=True):
     cmd = shlex.split(command)
     print(cmd, path, shell)
     if cmd:
-        subprocess.Popen(cmd, cwd=path, shell=False)
+        subprocess.Popen(cmd, cwd=path, shell=shell)
