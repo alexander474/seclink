@@ -11,7 +11,7 @@ def run(command=None, path=None, shell=True):
     process = None
     print("CMD: ", cmd)
     print("PATH: ", path)
-    if cmd & path:
+    if cmd and path:
         # DETACHED_PROCESS flag to open separate terminal | preexec_fn=os.setpgrp for Linux
         if settings.IS_LINUX:
             process = subprocess.run(cmd, cwd=path, shell=shell, preexec_fn=os.setpgrp)
@@ -26,7 +26,7 @@ def popen(command=None, path=None, shell=True):
     process = None
     print("CMD: ", cmd)
     print("PATH: ", path)
-    if cmd & path:
+    if cmd and path:
         # DETACHED_PROCESS flag to open separate terminal | preexec_fn=os.setpgrp for Linux
         if settings.IS_LINUX:
             process = subprocess.Popen(cmd, cwd=path, shell=shell, preexec_fn=os.setpgrp)
